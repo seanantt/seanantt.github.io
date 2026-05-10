@@ -22,7 +22,7 @@ I'm a **business-driven Data Analyst** with hands-on experience in data analysis
 - 📊 Built dashboards analyzing 5,000+ transactions across 10 branches
 - 🏢 Commercial Analyst at **PT. Yupi Indo Jelly Gum** — Middle East market analysis
 - 🎓 **Telkom University** — Telecommunication & Information Business Management, GPA 3.63 (*Cum Laude*)
-- 🏅 **BNSP Certified Data Analyst** (2025)
+- 🏅 **BNSP Certified Data Analyst** (2026)
 - 📍 Based in Indonesia
 
 ---
@@ -35,11 +35,11 @@ I'm a **business-driven Data Analyst** with hands-on experience in data analysis
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 ![Excel](https://img.shields.io/badge/Excel%20Advanced-217346?style=flat-square&logo=microsoftexcel&logoColor=white)
-![Gephi](https://img.shields.io/badge/Gephi-9999FF?style=flat-square&logoColor=white)
+
 
 **Core Competencies**
 
-`Market Analysis` · `Business Performance Monitoring` · `EDA` · `Data Visualization` · `Stakeholder Management` · `UAT`
+`Data Analysis` · `Business Performance Monitoring` · `EDA` · `Data Visualization` · `Business Intelligence` · `Problem Solving`
 
 ---
 
