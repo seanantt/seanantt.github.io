@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rafly Sean Antonio — Data Analyst & BI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7F5F0;
+    --surface: #EDEAE3;
+    --ink: #1A1916;
+    --ink-2: #5C5A54;
+    --ink-3: #9A9890;
+    --accent: #C84B2F;
+    --accent-light: #F5EAE6;
+    --border: #D8D4CC;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Fraunces', serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--mono); font-size: 14px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 56px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--ink-2); text-decoration: none; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  .hero {
+    padding: 140px 2.5rem 80px; max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 100vh;
+  }
+  .hero-tag {
+    display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-light); border: 1px solid #E8C4BB;
+    padding: 4px 12px; border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .hero h1 { font-family: var(--serif); font-size: clamp(34px, 5vw, 52px); font-weight: 300; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-desc { color: var(--ink-2); font-size: 14px; line-height: 1.8; margin-bottom: 2rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 10px 24px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
+  .btn-primary { background: var(--ink); color: var(--bg); border: 1px solid var(--ink); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .hero-visual { display: flex; flex-direction: column; gap: 12px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
+  .stat-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+  .stat-value { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
+  .stat-delta-pos { font-size: 11px; color: #3A7D44; background: #EAF3DE; padding: 2px 8px; border-radius: 2px; }
+  .stat-delta-neg { font-size: 11px; color: #854F0B; background: #FAEEDA; padding: 2px 8px; border-radius: 2px; }
+
+  section { padding: 80px 2.5rem; max-width: 900px; margin: 0 auto; }
+  .section-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 40px); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 3rem; }
+  hr.divider { border: none; border-top: 1px solid var(--border); max-width: 900px; margin: 0 auto; }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.5rem; }
+  .skill-group h4 { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .skill-tag { display: inline-block; font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; margin: 3px 3px 3px 0; color: var(--ink-2); background: var(--surface); }
+  .cert-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 6px 12px; border: 1px solid #E8C4BB; border-radius: 2px; color: var(--accent); background: var(--accent-light); margin-top: 1.5rem; }
+
+  .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.5rem 1.75rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; transition: border-color 0.2s; }
+  .project-card:hover { border-color: var(--accent); }
+  .project-num { font-size: 11px; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; }
+  .project-name { font-family: var(--serif); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .project-desc { color: var(--ink-2); font-size: 13px; margin-bottom: 10px; }
+  .project-outcomes { list-style: none; margin-bottom: 12px; }
+  .project-outcomes li { font-size: 12px; color: var(--ink-2); padding: 2px 0; }
+  .project-outcomes li::before { content: "→ "; color: var(--accent); }
+  .project-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .project-tag { font-size: 11px; padding: 2px 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 2px; color: var(--ink-3); }
+  .project-link { font-size: 12px; color: var(--accent); text-decoration: none; white-space: nowrap; padding-top: 4px; letter-spacing: 0.04em; }
+  .project-link:hover { text-decoration: underline; }
+
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-period { font-size: 12px; color: var(--ink-3); padding-top: 2px; }
+  .exp-role { font-family: var(--serif); font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+  .exp-company { font-size: 12px; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li { font-size: 13px; color: var(--ink-2); padding: 2px 0; }
+  .exp-bullets li::before { content: "– "; color: var(--ink-3); }
+
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--ink-2); margin-bottom: 1rem; line-height: 1.8; }
+  .meta-item { margin-bottom: 1.25rem; }
+  .meta-key { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); margin-bottom: 2px; }
+  .meta-val { color: var(--ink); font-size: 13px; }
+
+  .contact-inner { background: var(--ink); color: var(--bg); border-radius: 4px; padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .contact-inner h3 { font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 0.75rem; }
+  .contact-inner p { color: #9A9890; font-size: 13px; }
+  .contact-links { display: flex; flex-direction: column; gap: 12px; }
+  .contact-link { display: flex; align-items: center; gap: 12px; color: var(--bg); text-decoration: none; font-size: 13px; padding: 12px 16px; border: 1px solid #2C2C2A; border-radius: 2px; transition: border-color 0.2s; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  footer { text-align: center; padding: 2rem; color: var(--ink-3); font-size: 12px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; min-height: unset; padding-top: 100px; }
+    .hero-visual { display: none; }
+    .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    section { padding: 60px 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">RSA<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Data Analyst &amp; BI Developer · BNSP Certified</div>
+    <h1>Rafly Sean<br/><em>Antonio.</em></h1>
+    <p class="hero-desc">
+      Business-driven analyst turning raw data into strategic decisions. Experienced in dashboards, market analysis, and cross-functional collaboration across commercial and banking sectors.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:rseanantonio@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div>
+        <div class="stat-label">Electronics Revenue Share</div>
+        <div class="stat-value">78%</div>
+      </div>
+      <div class="stat-delta-pos">Top Driver</div>
+    </div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-label">Branch Performance Gap</div>
+        <div class="stat-value">23.8%</div>
+      </div>
+      <div class="stat-delta-neg">Identified</div>
+    </div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-label">Attrition — Cust. Support</div>
+        <div class="stat-value">21.1%</div>
+      </div>
+      <div class="stat-delta-neg">High Risk</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1rem 1.25rem;">
+      <div class="stat-label" style="margin-bottom:8px;">Sales Uplift Patterns</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-size:11px;padding:3px 8px;background:#EAF3DE;color:#3A7D44;border-radius:2px;">Weekend +35%</span>
+        <span style="font-size:11px;padding:3px 8px;background:#E6F1FB;color:#185FA5;border-radius:2px;">Payday +30%</span>
+        <span style="font-size:11px;padding:3px 8px;background:#FAEEDA;color:#854F0B;border-radius:2px;">Efficiency +20%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I work with</div>
+  <div class="section-title">Skills &amp; Tools</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">SQL</span>
+    </div>
+    <div class="skill-group">
+      <h4>BI &amp; Visualization</h4>
+      <span class="skill-tag">Power BI</span>
+      <span class="skill-tag">Gephi</span>
+    </div>
+    <div class="skill-group">
+      <h4>Productivity</h4>
+      <span class="skill-tag">Excel (Advanced)</span>
+      <span class="skill-tag">XLOOKUP</span>
+      <span class="skill-tag">Pivot Tables</span>
+    </div>
+    <div class="skill-group">
+      <h4>Business Skills</h4>
+      <span class="skill-tag">Market Analysis</span>
+      <span class="skill-tag">Performance Monitoring</span>
+      <span class="skill-tag">Stakeholder Mgmt</span>
+      <span class="skill-tag">UAT</span>
+    </div>
+  </div>
+  <div>
+    <span class="cert-badge">🏅 BNSP Certified Data Analyst — 2025</span>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Selected work</div>
+  <div class="section-title">Projects</div>
+  <div class="projects-list">
+
+    <div class="project-card">
+      <div>
+        <div class="project-num">01</div>
+        <div class="project-name">Sales Tracker Dashboard</div>
+        <p class="project-desc">Interactive dashboard analyzing 5,000+ transactions across 10 branches to uncover revenue drivers and operational gaps.</p>
+        <ul class="project-outcomes">
+          <li>Electronics identified as top revenue driver (78% share)</li>
+          <li>Discovered +35% weekend and +30% payday sales uplift</li>
+          <li>Revealed 23.8% gap between top and bottom branches</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">Power BI</span>
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Excel</span>
+        </div>
+      </div>
+      <a href="https://github.com/seanantt" class="project-link">View →</a>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-num">02</div>
+        <div class="project-name">HR Employee Retention Analysis</div>
+        <p class="project-desc">Attrition analysis on 1,900+ employee records to surface workforce risk patterns and recommend targeted interventions.</p>
+        <ul class="project-outcomes">
+          <li>Customer Support flagged as highest-risk dept (21.1% attrition)</li>
+          <li>Low satisfaction correlated with 56% resignation rate</li>
+          <li>2–3 year tenure identified as peak attrition window</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Power BI</span>
+        </div>
+      </div>
+      <a href="https://github.com/seanantt" class="project-link">View →</a>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-num">03</div>
+        <div class="project-name">Global Layoff Trends — EDA</div>
+        <p class="project-desc">Exploratory data analysis on worldwide layoff data using SQL and Power BI to identify the most affected industries and regions.</p>
+        <ul class="project-outcomes">
+          <li>Visualized layoff concentration by industry and geography</li>
+          <li>Delivered strategic workforce insights for decision-makers</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">SQL</span>
+          <span class="project-tag">Power BI</span>
+        </div>
+      </div>
+      <a href="https://github.com/seanantt" class="project-link">View →</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work history</div>
+  <div class="section-title">Experience</div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-period">Dec 2024 – Present</div>
+      <div>
+        <div class="exp-role">Commercial Analyst &amp; Support</div>
+        <div class="exp-company">PT. Yupi Indo Jelly Gum · Internship (Kemnaker Batch 3)</div>
+        <ul class="exp-bullets">
+          <li>Market and commercial performance analysis across the Middle East region</li>
+          <li>Evaluated sales trends and product performance to identify growth opportunities</li>
+          <li>Improved reporting efficiency by 20% using Excel (XLOOKUP, Pivot Tables)</li>
+          <li>Maintained centralized data systems, improving workflow efficiency by 10%</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jan – Aug 2025</div>
+      <div>
+        <div class="exp-role">Big Data &amp; Analytics Practicum Assistant</div>
+        <div class="exp-company">Data Laboratory, Faculty of Economics &amp; Business — Telkom University</div>
+        <ul class="exp-bullets">
+          <li>Trained students in Python and Gephi for data analysis</li>
+          <li>Created datasets, modules, and dashboards to enhance evaluation</li>
+          <li>Evaluated student projects and reported outcomes to faculty</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-period">Jul – Sep 2024</div>
+      <div>
+        <div class="exp-role">Digital Channel Intern</div>
+        <div class="exp-company">PT. Bank Index Selindo</div>
+        <ul class="exp-bullets">
+          <li>Analyzed customer interaction data to improve digital strategy, boosting satisfaction by 15%</li>
+          <li>Supported UAT for the INDEX-QU mobile banking application</li>
+          <li>Coordinated OJK-compliant feature implementation with stakeholders</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Reach out</div>
+  <div class="section-title">Contact</div>
+  <div class="contact-inner">
+    <div>
+      <h3>Let's work<br/>together.</h3>
+      <p>Open to full-time analyst roles, freelance data projects, and interesting collaborations in BI and analytics.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:rseanantonio@gmail.com" class="contact-link">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/></svg>
+        rseanantonio@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/seanant/" class="contact-link">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.37h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.6z"/></svg>
+        linkedin.com/in/seanant
+      </a>
+      <a href="https://github.com/seanantt" class="contact-link">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+        github.com/seanantt
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with HTML &amp; CSS · Hosted on GitHub Pages · © 2025 Rafly Sean Antonio</p>
+</footer>
+
+</body>
+</html>
