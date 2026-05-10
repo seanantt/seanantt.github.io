@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rafly Sean Antonio — Data Analyst & Business Intelligence</title>
+<title>Rafly Sean Antonio — Data Analyst & BI Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet" />
 <style>
@@ -37,12 +37,33 @@
 
   .hero {
     padding: 140px 2.5rem 80px; max-width: 900px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 100vh;
+    display: grid; grid-template-columns: auto 1fr; gap: 3.5rem; align-items: center; min-height: 100vh;
   }
-  .hero-tag {
-    display: inline-block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--accent); background: var(--accent-light); border: 1px solid #E8C4BB;
-    padding: 4px 12px; border-radius: 2px; margin-bottom: 1.5rem;
+  .hero-photo-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+  .hero-photo {
+    width: 160px; height: 160px; border-radius: 4px;
+    object-fit: cover; border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-photo-placeholder {
+    width: 160px; height: 160px; border-radius: 4px;
+    border: 1.5px dashed var(--border); background: var(--surface);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; color: var(--ink-3); font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; text-align: center; padding: 1rem;
+  }
+  .hero-photo {
+  width: 160px;
+  height: 200px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border);
+  display: block;
+}
   }
   .hero h1 { font-family: var(--serif); font-size: clamp(34px, 5vw, 52px); font-weight: 300; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
   .hero h1 em { font-style: italic; color: var(--accent); }
@@ -53,13 +74,6 @@
   .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
   .btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--border); }
   .btn-outline:hover { border-color: var(--ink); }
-
-  .hero-visual { display: flex; flex-direction: column; gap: 12px; }
-  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; }
-  .stat-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
-  .stat-value { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
-  .stat-delta-pos { font-size: 11px; color: #3A7D44; background: #EAF3DE; padding: 2px 8px; border-radius: 2px; }
-  .stat-delta-neg { font-size: 11px; color: #854F0B; background: #FAEEDA; padding: 2px 8px; border-radius: 2px; }
 
   section { padding: 80px 2.5rem; max-width: 900px; margin: 0 auto; }
   .section-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
@@ -112,8 +126,9 @@
   footer { text-align: center; padding: 2rem; color: var(--ink-3); font-size: 12px; border-top: 1px solid var(--border); }
 
   @media (max-width: 680px) {
-    .hero { grid-template-columns: 1fr; gap: 2rem; min-height: unset; padding-top: 100px; }
-    .hero-visual { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 2rem; min-height: unset; padding-top: 100px; text-align: center; }
+    .hero-photo-wrap { align-items: center; }
+    .hero-cta { justify-content: center; }
     .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
     .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     nav { padding: 0 1.25rem; }
@@ -136,11 +151,10 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-photo-wrap">
-    <!-- FOTO: Ganti src dengan link foto kamu setelah upload ke GitHub -->
-    <!-- Contoh: src="assets/foto.jpg" atau src="https://github.com/seanantt.png" -->
-    <img class="hero-photo" src="assets/seancropped.jpg" alt="Rafly Sean Antonio" />
-    </div>
+<div class="hero-photo-wrap">
+  <!-- BARIS INI SAJA, yang lain hapus -->
+  <img class="hero-photo" src="assets/seancropped.jpg" alt="Rafly Sean Antonio" />
+</div>
   </div>
   <div>
     <div class="hero-tag">Data Analyst &amp; BI Developer · BNSP Certified</div>
@@ -154,43 +168,7 @@
     </div>
   </div>
 </div>
- 
-<hr class="divider" />
- 
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-label">What I work with</div>
-  <div class="section-title">Skills &amp; Tools</div>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <h4>Languages</h4>
-      <span class="skill-tag">Python</span>
-      <span class="skill-tag">SQL</span>
-    </div>
-    <div class="skill-group">
-      <h4>BI &amp; Visualization</h4>
-      <span class="skill-tag">Power BI</span>
-      <span class="skill-tag">Gephi</span>
-    </div>
-    <div class="skill-group">
-      <h4>Productivity</h4>
-      <span class="skill-tag">Excel (Advanced)</span>
-      <span class="skill-tag">XLOOKUP</span>
-      <span class="skill-tag">Pivot Tables</span>
-    </div>
-    <div class="skill-group">
-      <h4>Business Skills</h4>
-      <span class="skill-tag">Market Analysis</span>
-      <span class="skill-tag">Performance Monitoring</span>
-      <span class="skill-tag">Stakeholder Mgmt</span>
-      <span class="skill-tag">UAT</span>
-    </div>
-  </div>
-  <div>
-    <span class="cert-badge">🏅 BNSP Certified Data Analyst — 2025</span>
-  </div>
-</section>
- 
+
 <hr class="divider" />
 
 <!-- SKILLS -->
@@ -233,7 +211,17 @@
 <section id="projects">
   <div class="section-label">Selected work</div>
   <div class="section-title">Projects</div>
-  <div class="projects-list">
+
+  <!--
+  ============================================================
+  CARA TAMBAH PROJECT BARU:
+  Copy blok <div class="project-card"> ... </div> di bawah,
+  paste setelah project terakhir, lalu ganti isinya.
+  Nomor urut akan otomatis diupdate oleh script di bawah.
+  ============================================================
+  -->
+
+  <div class="projects-list" id="projects-list">
 
     <div class="project-card">
       <div>
@@ -288,6 +276,26 @@
       </div>
       <a href="https://github.com/seanantt" class="project-link">View →</a>
     </div>
+
+    <!-- TEMPLATE PROJECT BARU (hapus komentar ini saat pakai):
+    <div class="project-card">
+      <div>
+        <div class="project-num">04</div>
+        <div class="project-name">Nama Project Kamu</div>
+        <p class="project-desc">Deskripsi singkat project, dataset yang dipakai, dan tujuannya.</p>
+        <ul class="project-outcomes">
+          <li>Outcome / insight utama pertama</li>
+          <li>Outcome / insight utama kedua</li>
+          <li>Dampak bisnis atau angka yang dihasilkan</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">Tool 1</span>
+          <span class="project-tag">Tool 2</span>
+        </div>
+      </div>
+      <a href="https://github.com/seanantt/nama-repo" class="project-link">View →</a>
+    </div>
+    -->
 
   </div>
 </section>
@@ -374,6 +382,14 @@
 <footer>
   <p>Built with HTML &amp; CSS · Hosted on GitHub Pages · © 2025 Rafly Sean Antonio</p>
 </footer>
+
+<script>
+  /* Auto-numbering: nomor project otomatis diupdate saat kamu tambah/hapus card */
+  document.querySelectorAll('#projects-list .project-card').forEach((card, i) => {
+    const num = card.querySelector('.project-num');
+    if (num) num.textContent = String(i + 1).padStart(2, '0');
+  });
+</script>
 
 </body>
 </html>
