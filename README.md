@@ -45,7 +45,7 @@ I'm a **business-driven Data Analyst** with hands-on experience in data analysis
 
 ## 🚀 Featured Projects
 
-### 📈 [Sales Tracker Dashboard](https://github.com/seanantt)
+### 📈 [Sales Tracker Dashboard](https://github.com/seanantt/sales-dashboard-and-trend-analysis)
 > Interactive dashboard analyzing **5,000+ transactions** across 10 branches.
 - Electronics identified as top revenue driver at 78% share
 - Uncovered +35% weekend and +30% payday sales uplift patterns
