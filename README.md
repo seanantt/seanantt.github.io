@@ -1,5 +1,5 @@
 <h1 align="center">Hi, I'm Rafly Sean Antonio 👋</h1>
-<h3 align="center">Data Analyst & Business Intelligence | Telkom University · Cum Laude</h3>
+<h3 align="center">Data Analyst & Business Intelligence | Telkom University </h3>
 
 <p align="center">
   <a href="https://linkedin.com/in/seanant/">
